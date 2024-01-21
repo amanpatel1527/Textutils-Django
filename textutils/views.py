@@ -15,7 +15,7 @@ def analyze(request):
     newlineremover =  request.GET.get ('newlineremover','off')
     spaceremover =  request.GET.get ('spaceremover','off')
     charactercounter =  request.GET.get ('charactercounter','off')
-
+# for Remove punctuation
     if removepunc == 'on':
         punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
         analyzed = ""
@@ -61,7 +61,7 @@ def analyze(request):
             if not(djtext[index] == " " and djtext[index+1]==" "):
                 analyzed = analyzed + char
 
-        params = {'purpose': 'Removed NewLines', 'analyzed_text': analyzed}
+        params = {'purpose': 'Removed Space', 'analyzed_text': analyzed}
 
         # Analyze the text
         return render(request, 'analyze.html', params)
